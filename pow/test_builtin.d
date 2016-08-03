@@ -1,4 +1,4 @@
-extern(D) auto t(double a, int b)
+extern(D) auto t(double a, double b)
 {
     return a ^^ b;
 }

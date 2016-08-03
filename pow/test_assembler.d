@@ -1,5 +1,5 @@
 extern(D) auto t(double a, double b)
 {
-    import std.math : pow;
+    import core.stdc.math : pow;
     return pow(a, b);
 }
