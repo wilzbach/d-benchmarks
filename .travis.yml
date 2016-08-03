@@ -1,0 +1,19 @@
+language: d
+os:
+ - linux
+env:
+ - LDC_VERSION=1.0.0 GDC_VERSION=5.2.0
+d:
+ - dmd-2.071.1
+install:
+ - source "$(curl -fsS  --retry 3 https://dlang.org/install.sh | CURL_USER_AGENT="$CURL_USER_AGENT" bash -s ldc-$(LDC_VERSION) --activate)"
+ - source "$(curl -fsS  --retry 3 https://dlang.org/install.sh | CURL_USER_AGENT="$CURL_USER_AGENT" bash -s gdc-$(GDC_VERSION) --activate)"
+ - ln -s $HOME/dlang/ldc-$(LDC_VERSION)/bin/ldc2 $HOME/dlang/ldc-$(LDC_VERSION)/bin/ldc
+ - echo $PATH
+ - echo $LIBRARY_PATH
+ - echo $LD_LIBRARY_PATH
+ - dmd --version
+ - ldc --version
+ - gdc --version
+script:
+ - make $(ls -d */ | grep -vE "(alias|bin)" | tr -d '/' | tr '\n' ' ')
