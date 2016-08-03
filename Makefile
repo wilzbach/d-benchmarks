@@ -62,8 +62,8 @@ bin/dmd/libmir.a: | bin/dmd/
 bin/ldc/libmir.a: | bin/ldc/
 	$(LDC) $(LDC_FLAGS) -lib -of$@ $$(find $(MIR_SOURCE) -name '*.d')
 
-DMD_LIBRARIES:=bin/dmd/libmir.a
-LDC_LIBRARIES:=bin/ldc/libmir.a
+#DMD_LIBRARIES:=bin/dmd/libmir.a
+#LDC_LIBRARIES:=bin/ldc/libmir.a
 
 ################################################################################
 # Optimized object files
